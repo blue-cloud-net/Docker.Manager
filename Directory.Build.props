@@ -1,0 +1,66 @@
+<Project>
+
+	<PropertyGroup>
+		<!--项目信息-->
+		<Version>1.0.0</Version>
+		<Authors>shl</Authors>
+		<Company>Huansky Co.,Ltd.</Company>
+		<Product>Docker.Manager</Product>
+		<Copyright>© 2023-present Huansky Co.,Ltd.</Copyright>
+		<RepositoryUrl>https://gitlab.registry.cersign.cn/shl/salessystem</RepositoryUrl>
+		
+		<!--<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageIcon>logo.png</PackageIcon>-->
+	</PropertyGroup>
+
+	<PropertyGroup>
+    	<TargetFramework>net7.0</TargetFramework>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
+	</PropertyGroup>
+
+	<PropertyGroup>
+
+		<!-- All Microsoft AspNetCore packages -->
+		<MicrosoftAspNetCorePackageVersion>7.0.0</MicrosoftAspNetCorePackageVersion>
+
+		<!-- All Microsoft EntityFrameworkCore packages -->
+		<MicrosoftEntityFrameworkCorePackageVersion>7.0.1</MicrosoftEntityFrameworkCorePackageVersion>
+
+		<!-- All Microsoft packages -->
+		<MicrosoftPackageVersion>7.0.0</MicrosoftPackageVersion>
+
+		<!-- Microsoft.NET.Test.Sdk https://www.nuget.org/packages/Microsoft.NET.Test.Sdk -->
+		<MicrosoftNETTestSdkPackageVersion>17.6.2</MicrosoftNETTestSdkPackageVersion>
+
+		<!-- NUnit https://www.nuget.org/packages/NUnit -->
+		<NUnitPackageVersion>3.13.3</NUnitPackageVersion>
+
+		<!-- NUnit3TestAdapter https://www.nuget.org/packages/NUnit3TestAdapter -->
+		<NUnit3TestAdapterPackageVersion>4.5.0</NUnit3TestAdapterPackageVersion>
+
+		<!-- NUnit.Analyzers https://www.nuget.org/packages/NUnit.Analyzers -->
+		<NUnitAnalyzersPackageVersion>3.6.1</NUnitAnalyzersPackageVersion>
+
+		<!-- NUnit.Analyzers https://www.nuget.org/packages/coverlet.collector -->
+		<coverletcollectorPackageVersion>6.0.0</coverletcollectorPackageVersion>
+
+		<IsTestProject Condition="$(MSBuildProjectFullPath.Contains('Tests')) and ($(MSBuildProjectName.EndsWith('.UnitTests')) or $(MSBuildProjectName.EndsWith('.Test.Base')))">true</IsTestProject>
+
+	</PropertyGroup>
+
+	<ItemGroup Condition="'$(IsTestProject)' == 'true'">
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="$(MicrosoftNETTestSdkPackageVersion)" />
+		<PackageReference Include="NUnit" Version="$(NUnitPackageVersion)" />
+		<PackageReference Include="NUnit3TestAdapter" Version="$(NUnit3TestAdapterPackageVersion)" />
+		<PackageReference Include="NUnit.Analyzers" Version="$(NUnitAnalyzersPackageVersion)" />
+		<PackageReference Include="coverlet.collector" Version="$(coverletcollectorPackageVersion)">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+</Project>
